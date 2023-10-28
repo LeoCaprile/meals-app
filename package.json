@@ -18,6 +18,7 @@
     "@lucia-auth/adapter-sqlite": "^2.0.1",
     "@lucia-auth/oauth": "^3.3.1",
     "await-to-js": "^3.0.0",
+    "beth-stack": "^0.0.34",
     "chokidar": "^3.5.3",
     "drizzle-orm": "^0.28.6",
     "elysia": "0.7.16",

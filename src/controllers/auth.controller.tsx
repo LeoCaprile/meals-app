@@ -59,7 +59,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 						set: ctx.set,
 						headers: ctx.headers,
 					},
-					"/todos"
+					"/"
 				);
 
 				ctx.log.info("Signin successful");
