@@ -1,2 +1,2 @@
-export { user, key, session } from "./schema/user";
-export { org } from "./schema/org";
+export { user, key, userOrgRelation, session } from "./schema/user";
+export { org, orgUserRole } from "./schema/org";

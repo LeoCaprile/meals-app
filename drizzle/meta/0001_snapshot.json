@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "acbd128b-a212-405b-98d5-d15bb3693faf",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "bc8e3d59-a505-49c4-bbf9-b756f3d899c9",
+  "prevId": "acbd128b-a212-405b-98d5-d15bb3693faf",
   "tables": {
     "user_key": {
       "name": "user_key",
@@ -120,6 +120,29 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
+    "org_user_role": {
+      "name": "org_user_role",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "user_session": {
       "name": "user_session",
       "columns": {
@@ -208,10 +231,31 @@
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
+        },
+        "organization_role": {
+          "name": "organization_role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "user_organization_role_org_user_role_id_fk": {
+          "name": "user_organization_role_org_user_role_id_fk",
+          "tableFrom": "user",
+          "tableTo": "org_user_role",
+          "columnsFrom": [
+            "organization_role"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     }

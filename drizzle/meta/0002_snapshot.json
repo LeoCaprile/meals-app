@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "acbd128b-a212-405b-98d5-d15bb3693faf",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "23b62f83-ee65-42d8-a2f0-f41598687fe3",
+  "prevId": "bc8e3d59-a505-49c4-bbf9-b756f3d899c9",
   "tables": {
     "user_key": {
       "name": "user_key",
@@ -41,7 +41,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -120,6 +120,29 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
+    "org_user_role": {
+      "name": "org_user_role",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "user_session": {
       "name": "user_session",
       "columns": {
@@ -164,7 +187,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -208,10 +231,31 @@
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
+        },
+        "organization_role_id": {
+          "name": "organization_role_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "user_organization_role_id_org_user_role_id_fk": {
+          "name": "user_organization_role_id_org_user_role_id_fk",
+          "tableFrom": "user",
+          "tableTo": "org_user_role",
+          "columnsFrom": [
+            "organization_role_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     }
@@ -220,6 +264,8 @@
   "_meta": {
     "schemas": {},
     "tables": {},
-    "columns": {}
+    "columns": {
+      "\"user\".\"organization_role\"": "\"user\".\"organization_role_id\""
+    }
   }
 }

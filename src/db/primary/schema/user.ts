@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { sqliteTable, text, blob } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, blob, integer } from "drizzle-orm/sqlite-core";
 import { org } from "./org";
 
 export const user = sqliteTable("user", {
@@ -7,7 +7,8 @@ export const user = sqliteTable("user", {
 	name: text("name").notNull(),
 	picture: text("picture").notNull(),
 	email: text("email"),
-	organizationId: text("organization_id"),
+	organizationId: integer("organization_id"),
+	organizationRoleId: integer("organization_role_id").notNull(),
 });
 
 export const userOrgRelation = relations(user, ({ one }) => ({
@@ -21,7 +22,7 @@ export const session = sqliteTable("user_session", {
 	id: text("id").primaryKey(),
 	userId: text("user_id")
 		.notNull()
-		.references(() => user.id),
+		.references(() => user.id, { onDelete: "cascade" }),
 	activeExpires: blob("active_expires", {
 		mode: "bigint",
 	}).notNull(),
@@ -34,6 +35,6 @@ export const key = sqliteTable("user_key", {
 	id: text("id").primaryKey(),
 	userId: text("user_id")
 		.notNull()
-		.references(() => user.id),
+		.references(() => user.id, { onDelete: "cascade" }),
 	hashedPassword: text("hashed_password"),
 });

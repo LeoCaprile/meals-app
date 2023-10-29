@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "acbd128b-a212-405b-98d5-d15bb3693faf",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "db76b91b-8882-40ae-850f-7ab3c30517d7",
+  "prevId": "23b62f83-ee65-42d8-a2f0-f41598687fe3",
   "tables": {
     "user_key": {
       "name": "user_key",
@@ -41,7 +41,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -120,6 +120,29 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
+    "org_user_role": {
+      "name": "org_user_role",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "user_session": {
       "name": "user_session",
       "columns": {
@@ -164,7 +187,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -204,14 +227,36 @@
         },
         "organization_id": {
           "name": "organization_id",
-          "type": "text",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
+        },
+        "organization_role_id": {
+          "name": "organization_role_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 1
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "user_organization_role_id_org_user_role_id_fk": {
+          "name": "user_organization_role_id_org_user_role_id_fk",
+          "tableFrom": "user",
+          "tableTo": "org_user_role",
+          "columnsFrom": [
+            "organization_role_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     }

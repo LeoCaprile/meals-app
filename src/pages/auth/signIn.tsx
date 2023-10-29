@@ -8,7 +8,7 @@ export const SignInPage = new Elysia()
 	.use(ctx)
 	.get("/signIn", ({ session, renderPage, set }) => {
 		if (session) {
-			set.redirect = "/";
+			set.redirect = "/organization";
 			return;
 		}
 

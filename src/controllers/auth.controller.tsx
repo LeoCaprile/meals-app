@@ -59,7 +59,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 						set: ctx.set,
 						headers: ctx.headers,
 					},
-					"/"
+					"/organization"
 				);
 
 				ctx.log.info("Signin successful");
@@ -109,6 +109,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 						email,
 						name: generateFromEmail(email, 3),
 						picture: "",
+						organization_role_id: 0,
 					},
 				});
 
@@ -124,12 +125,13 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 						set: ctx.set,
 						headers: ctx.headers,
 					},
-					"/todos"
+					"/organization"
 				);
 			} catch (e) {
 				if (e instanceof LuciaError && e.message === "AUTH_DUPLICATE_KEY_ID") {
 					console.error(e);
 				}
+				ctx.log.error(e);
 			}
 		},
 		{
@@ -209,6 +211,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 						name: googleUser.name,
 						email: googleUser.email ?? "",
 						picture: googleUser.picture,
+						organization_role_id: 0,
 					},
 				});
 
@@ -228,7 +231,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 					set,
 					headers,
 				},
-				"/todos"
+				"/organization"
 			);
 		} catch (e) {
 			console.error(e, "Error signing in with Google");

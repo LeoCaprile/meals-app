@@ -8,5 +8,6 @@ declare namespace Lucia {
 		email: string;
 		id?: string;
 		organization_id?: string;
+		organization_role_id: number;
 	};
 }

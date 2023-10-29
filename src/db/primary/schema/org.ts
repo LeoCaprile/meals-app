@@ -12,3 +12,8 @@ export const org = sqliteTable("org", {
 	db_name: text("db_name").notNull(),
 	db_auth_token: text("db_auth_token").notNull(),
 });
+
+export const orgUserRole = sqliteTable("org_user_role", {
+	id: integer("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
+	role: text("role").notNull(),
+});

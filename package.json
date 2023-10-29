@@ -5,7 +5,8 @@
     "test": "xss-scan",
     "dev": "concurrently \"bun --hot run src/main.ts\" \"unocss --watch\" \"bun run reload/index.ts\"",
     "db:push": "drizzle-kit push:sqlite",
-    "db:drop": "drizzle-kit drop"
+    "db:drop": "drizzle-kit drop",
+    "db:migrate": "drizzle-kit generate:sqlite"
   },
   "dependencies": {
     "@bogeychan/elysia-logger": "^0.0.12",
@@ -19,6 +20,7 @@
     "@lucia-auth/oauth": "^3.3.1",
     "await-to-js": "^3.0.0",
     "beth-stack": "^0.0.34",
+    "better-sqlite3": "^9.0.0",
     "chokidar": "^3.5.3",
     "drizzle-orm": "^0.28.6",
     "elysia": "0.7.16",

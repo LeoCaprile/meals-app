@@ -5,8 +5,36 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1697718263675,
-      "tag": "0000_tan_chimera",
+      "when": 1698466112698,
+      "tag": "0000_simple_the_watchers",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1698466436345,
+      "tag": "0001_wealthy_swordsman",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1698466954224,
+      "tag": "0002_material_roland_deschain",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1698467121917,
+      "tag": "0003_groovy_wolfpack",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1698467147908,
+      "tag": "0004_rainy_dragon_man",
       "breakpoints": true
     }
   ]
