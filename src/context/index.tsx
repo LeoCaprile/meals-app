@@ -6,6 +6,10 @@ import { authed } from "../auth/middleware";
 import { Navbar } from "../components/Navbar";
 import { utapi } from "../db/files/uploadthing";
 import { loggerPlugin } from "./logger";
+import { TursoClient } from "beth-stack/turso";
+import { env } from "../config";
+
+const turso = new TursoClient(env.TURSO_API_KEY);
 
 export const ctx = new Elysia({
 	name: "@app/ctx",
@@ -13,6 +17,7 @@ export const ctx = new Elysia({
 	.use(htmlPlugin())
 	.use(loggerPlugin)
 	.use(authed)
+	.decorate("turso", turso)
 	.decorate("utapi", utapi)
 	.decorate("db", db)
 	.derive((ctx) => {

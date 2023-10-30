@@ -49,7 +49,12 @@ type PutRoutes = RoutesByType<Schema, "put">;
 type DeleteRoutes = RoutesByType<Schema, "delete">;
 type PatchRoutes = RoutesByType<Schema, "patch">;
 
+export type Pages = DoesntStartWithApi<GetRoutes>;
+
 declare namespace JSX {
+	interface HtmlAnchorTag extends HtmlAnchorTag {
+		["href"]?: Pages;
+	}
 	interface HtmlTag extends Htmx.Attributes {
 		["hx-get"]?: StartsWithApi<GetRoutes>;
 		["hx-post"]?: StartsWithApi<PostRoutes>;

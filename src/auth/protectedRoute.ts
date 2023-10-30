@@ -1,7 +1,7 @@
-import { Session } from "lucia";
 import { Context } from "elysia";
+import { Session } from "lucia";
 
-const handleProtectedRoute = ({
+export const handleProtectedRoute = ({
 	session,
 	set,
 }: {

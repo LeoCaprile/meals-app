@@ -28,6 +28,10 @@
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noUnusedParameters": true,
-		"noUnusedLocals": true
+		"noUnusedLocals": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		}
 	}
 }

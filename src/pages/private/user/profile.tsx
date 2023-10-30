@@ -1,12 +1,12 @@
 import Elysia from "elysia";
-import { TextInput } from "../../components/Input";
-import { Button } from "../../components/Button";
-import { ctx } from "../../context";
-import { protectedRoute } from "../../auth/protectedRoute";
+import { TextInput } from "@/components/Input";
+import { Button } from "@/components/Button";
+import { ctx } from "@/context";
+import { protectedRoute } from "@/auth/protectedRoute";
 
-export const ProfilePage = new Elysia().use(ctx).get(
-	"/user/profile",
-	async ({ renderPage, session }) => {
+export const ProfilePage = new Elysia()
+	.use(ctx)
+	.get("/user/profile", async ({ renderPage, session }) => {
 		if (session === null) return;
 
 		const user = session.user;
@@ -62,6 +62,4 @@ export const ProfilePage = new Elysia().use(ctx).get(
 				</div>
 			</div>
 		);
-	},
-	protectedRoute
-);
+	});

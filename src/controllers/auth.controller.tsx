@@ -59,7 +59,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 						set: ctx.set,
 						headers: ctx.headers,
 					},
-					"/organization"
+					"/dashboard"
 				);
 
 				ctx.log.info("Signin successful");
@@ -125,7 +125,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 						set: ctx.set,
 						headers: ctx.headers,
 					},
-					"/organization"
+					"/dashboard"
 				);
 			} catch (e) {
 				if (e instanceof LuciaError && e.message === "AUTH_DUPLICATE_KEY_ID") {
@@ -231,7 +231,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 					set,
 					headers,
 				},
-				"/organization"
+				"/dashboard"
 			);
 		} catch (e) {
 			console.error(e, "Error signing in with Google");

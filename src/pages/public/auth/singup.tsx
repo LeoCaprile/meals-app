@@ -1,8 +1,8 @@
 import Elysia from "elysia";
-import { ctx } from "../../context";
-import { TextInput } from "../../components/Input";
-import { Button } from "../../components/Button";
-import { GoogleButton } from "../../components/GoogleButton";
+import { ctx } from "@/context";
+import { TextInput } from "@/components/Input";
+import { Button } from "@/components/Button";
+import { GoogleButton } from "@/components/GoogleButton";
 
 export const SignUpPage = new Elysia()
 	.use(ctx)

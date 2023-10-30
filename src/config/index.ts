@@ -8,6 +8,7 @@ const configSchema = z.object({
 	GOOGLE_CLIENT_ID: z.string(),
 	GOOGLE_TOKEN: z.string(),
 	HOST_URL: z.string(),
+	TURSO_API_KEY: z.string(),
 });
 
 const envObj = {
@@ -18,6 +19,7 @@ const envObj = {
 	GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
 	GOOGLE_TOKEN: process.env.GOOGLE_TOKEN,
 	HOST_URL: process.env.HOST_URL,
+	TURSO_API_KEY: process.env.TURSO_API_KEY,
 };
 
 export const env = configSchema.parse(envObj);

@@ -1,3 +1,5 @@
+import type { Pages } from "../htmx";
+
 export function redirect(
 	{
 		set,
@@ -12,7 +14,7 @@ export function redirect(
 			redirect?: string;
 		};
 	},
-	href: string
+	href: Pages
 ) {
 	if (headers["hx-request"] === "true") {
 		set.headers["HX-Location"] = href;

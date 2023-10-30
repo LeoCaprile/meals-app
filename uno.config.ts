@@ -4,7 +4,7 @@ import presetIcons from "@unocss/preset-icons";
 export default defineConfig({
 	cli: {
 		entry: {
-			patterns: ["src/{pages,components,controllers}/**/*.(tsx)"],
+			patterns: ["src/{pages,layouts,components,controllers}/**/*.(tsx)"],
 			outFile: "public/dist/unocss.css",
 		},
 	},
