@@ -2,8 +2,9 @@ import Elysia from "elysia";
 import { ctx } from "../../../context";
 import { redirect } from "@/lib";
 import { BasicLayout } from "@/layouts/Basic";
-import { TextInput } from "@/components/Input";
+import { TextInput } from "@/components/dataInput/Input";
 import { Button } from "@/components/Button";
+import InputFile from "@/components/dataInput/InputFile";
 
 export const orgPage = new Elysia({
 	name: "@app/orgPage",
@@ -72,28 +73,10 @@ export const orgPage = new Elysia({
 								<option value="UR">Uruguay</option>
 							</select>
 
-							<label
-								class="block mt-2 mb-2 text-sm font-medium text-gray-900 dark:text-white"
-								for="file_input"
-							>
-								Logo
-							</label>
-							<input
-								class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-								id="file_input"
-								type="file"
-							/>
-
-							<label
-								class="block mt-2 mb-2 text-sm font-medium text-gray-900 dark:text-white"
-								for="file_input"
-							>
-								Banner
-							</label>
-							<input
-								class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-								id="file_input"
-								type="file"
+							<InputFile
+								label="Logo"
+								name="logo"
+								accept="image/png, image/jpeg"
 							/>
 
 							<Button type="submit">Create</Button>

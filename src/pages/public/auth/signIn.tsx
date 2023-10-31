@@ -1,6 +1,6 @@
 import Elysia from "elysia";
 import { ctx } from "@/context";
-import { TextInput } from "@/components/Input";
+import { TextInput } from "@/components/dataInput/Input";
 import { Button } from "@/components/Button";
 import { GoogleButton } from "@/components/GoogleButton";
 

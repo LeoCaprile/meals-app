@@ -1,8 +1,7 @@
 import Elysia from "elysia";
-import { TextInput } from "@/components/Input";
+import { TextInput } from "@/components/dataInput/Input";
 import { Button } from "@/components/Button";
 import { ctx } from "@/context";
-import { protectedRoute } from "@/auth/protectedRoute";
 
 export const ProfilePage = new Elysia()
 	.use(ctx)
