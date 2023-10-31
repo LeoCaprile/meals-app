@@ -1,5 +1,6 @@
 import Elysia from "elysia";
 import { TextInput } from "@/components/dataInput/Input";
+import InputFile from "@/components/dataInput/InputFile";
 import { Button } from "@/components/Button";
 import { ctx } from "@/context";
 
@@ -34,6 +35,7 @@ export const ProfilePage = new Elysia()
 							value={user.email}
 							disabled
 						/>
+
 						<TextInput
 							label="Name"
 							placeholder="type here..."
@@ -42,20 +44,11 @@ export const ProfilePage = new Elysia()
 							value={user.name}
 						/>
 
-						<div>
-							<label
-								class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-								for="small_size"
-							>
-								Profile picture
-							</label>
-							<input
-								name="profilePicture"
-								class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-								type="file"
-								accept="image/png, image/jpeg"
-							/>
-						</div>
+						<InputFile
+							label="Profile picture"
+							name="profilePicture"
+							accept="image/jpeg, image/png"
+						/>
 
 						<Button type="submit">Save changes</Button>
 					</form>
