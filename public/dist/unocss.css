@@ -30,7 +30,6 @@
 .file\:-my-\[0\.32rem\]::file-selector-button{margin-top:-0.32rem;margin-bottom:-0.32rem;}
 .mb-10{margin-bottom:2.5rem;}
 .mb-2{margin-bottom:0.5rem;}
-.mb-5{margin-bottom:1.25rem;}
 .mb-6{margin-bottom:1.5rem;}
 .ml-2\.5{margin-left:0.625rem;}
 .ml-3{margin-left:0.75rem;}
@@ -133,12 +132,10 @@
 .text-base{font-size:1rem;line-height:1.5rem;}
 .text-sm{font-size:0.875rem;line-height:1.25rem;}
 .text-xl{font-size:1.25rem;line-height:1.75rem;}
-.text-xs{font-size:0.75rem;line-height:1rem;}
 .font-bold{font-weight:700;}
 .font-medium{font-weight:500;}
 .font-normal{font-weight:400;}
 .dark .dark\:text-gray-200{--un-text-opacity:1;color:rgba(229,231,235,var(--un-text-opacity));}
-.dark .dark\:text-gray-400{--un-text-opacity:1;color:rgba(156,163,175,var(--un-text-opacity));}
 .dark .dark\:text-neutral-200{--un-text-opacity:1;color:rgba(229,229,229,var(--un-text-opacity));}
 .dark .dark\:text-white,
 .text-white{--un-text-opacity:1;color:rgba(255,255,255,var(--un-text-opacity));}

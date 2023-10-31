@@ -3,8 +3,11 @@ import { generate } from "short-uuid";
 export function Button({
 	children,
 	className,
+	loading,
 	...props
-}: Html.PropsWithChildren<{ type: string; className?: string } & HTMLElement>) {
+}: Html.PropsWithChildren<
+	{ type?: string; className?: string; loading?: boolean } & HTMLElement
+>) {
 	const id = generate();
 
 	return (
@@ -18,10 +21,12 @@ export function Button({
 		>
 			{children}
 
-			<div
-				id={id}
-				class="htmx-indicator text-xl i-material-symbols-circles-ext-outline animate-spin"
-			></div>
+			{loading && (
+				<div
+					id={id}
+					class="htmx-indicator text-xl i-material-symbols-circles-ext-outline animate-spin"
+				></div>
+			)}
 		</button>
 	);
 }

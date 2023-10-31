@@ -2,6 +2,7 @@ import Elysia from "elysia";
 import { ctx } from "@/context";
 import { BasicLayout } from "@/layouts/Basic";
 import Link from "@/components/Link";
+import { Button } from "@/components/Button";
 
 export const dashboardPage = new Elysia({
 	name: "@app/dashboardPage",
@@ -21,8 +22,12 @@ export const dashboardPage = new Elysia({
 						<div>organization</div>
 					) : (
 						<div>
-							No organization,
-							<Link href="/organization/create">Create a organization</Link>
+							No organization
+							<Button>
+								<Link class="text-white" href="/organization/create">
+									Create a organization
+								</Link>
+							</Button>
 						</div>
 					)}
 				</div>
