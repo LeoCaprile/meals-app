@@ -1,6 +1,6 @@
 import Elysia, { t } from "elysia";
-import { ctx } from "../context";
-import { user } from "../db/primary";
+import { ctx } from "../../context";
+import { user } from "../../db/primary";
 import { eq } from "drizzle-orm";
 import to from "await-to-js";
 import { UserControllerError } from "./errors";

@@ -1,9 +1,9 @@
 import Elysia, { t } from "elysia";
-import { ctx } from "../context";
-import { redirect } from "../lib";
-import { googleAuth } from "../auth/lucia";
+import { ctx } from "../../context";
+import { redirect } from "../../lib";
+import { googleAuth } from "../../auth/lucia";
 import { parseCookie, serializeCookie } from "lucia/utils";
-import { env } from "../config";
+import { env } from "../../config";
 import { OAuthRequestError } from "@lucia-auth/oauth";
 import { LuciaError } from "lucia";
 import { generateFromEmail } from "unique-username-generator";

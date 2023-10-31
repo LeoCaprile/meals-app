@@ -10,20 +10,21 @@ export const orgPage = new Elysia({
 	name: "@app/orgPage",
 })
 	.use(ctx)
-	.get("/organization/:id", ({ session, set, headers, renderPage, params }) => {
+	.get("/organization/:id", ({ session, set, headers, renderPage }) => {
 		if (!session) return;
 		const userOrg = session.user.organization_id;
 
-		if (!userOrg && !params.id) {
+		if (!userOrg) {
 			redirect({ set, headers }, "/dashboard");
+			return;
 		}
 
 		return renderPage(
 			"organization",
-			<div>
+			<BasicLayout title="Org">
 				<h1>Organization page</h1>
 				<p>Organization page</p>
-			</div>
+			</BasicLayout>
 		);
 	})
 	.get("/organization/create", (ctx) => {
@@ -79,7 +80,15 @@ export const orgPage = new Elysia({
 								accept="image/png, image/jpeg"
 							/>
 
-							<Button type="submit">Create</Button>
+							<InputFile
+								label="Banner"
+								name="banner"
+								accept="image/png, image/jpeg"
+							/>
+
+							<Button className="mt-5" type="submit">
+								Create
+							</Button>
 						</form>
 					</div>
 				</div>

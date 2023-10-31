@@ -1,10 +1,10 @@
 import Elysia from "elysia";
-import { authController } from "./auth.controller";
-import { userController } from "./user.controller";
+import { privateControllers } from "./private";
+import { publicControllers } from "./public";
 
 export const controllers = new Elysia({
 	name: "@app/controllers",
 	prefix: "/api",
 })
-	.use(userController)
-	.use(authController);
+	.use(privateControllers)
+	.use(publicControllers);
