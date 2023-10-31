@@ -22,12 +22,16 @@ export const userController = new Elysia().use(ctx).put(
 				""
 			);
 
-			const [deleteErr] = await to(ctx.utapi.deleteFiles(actualProfilePicture));
-
-			if (deleteErr) {
-				throw new UserControllerError(
-					"Error deleting previous profile picture"
+			if (actualProfilePicture) {
+				const [deleteErr] = await to(
+					ctx.utapi.deleteFiles(actualProfilePicture)
 				);
+
+				if (deleteErr) {
+					throw new UserControllerError(
+						"Error deleting previous profile picture"
+					);
+				}
 			}
 
 			const [uploadErr, fileOnS3] = await to(

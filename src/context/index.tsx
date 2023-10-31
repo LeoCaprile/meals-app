@@ -8,6 +8,7 @@ import { utapi } from "../db/files/uploadthing";
 import { loggerPlugin } from "./logger";
 import { TursoClient } from "beth-stack/turso";
 import { env } from "../config";
+import { SideBar } from "@/components/SideBar";
 
 const turso = new TursoClient(env.TURSO_API_KEY);
 
@@ -24,7 +25,8 @@ export const ctx = new Elysia({
 		const renderPage = (title: string, children: JSX.Element) =>
 			ctx.html(
 				<BaseHTML title={title}>
-					<Navbar session={ctx.session} />
+					<Navbar session={ctx.session}></Navbar>
+					{ctx.session && <SideBar></SideBar>}
 					{children}
 				</BaseHTML>
 			);

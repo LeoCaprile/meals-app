@@ -25,6 +25,7 @@ export const ProfilePage = new Elysia()
 						hx-swap="none"
 						class="flex flex-col"
 						enctype="multipart/form-data"
+						hx-on:after-request="this.reset()"
 					>
 						<TextInput
 							label="Email"
