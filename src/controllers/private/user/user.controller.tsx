@@ -1,12 +1,12 @@
 import Elysia, { t } from "elysia";
-import { ctx } from "../../context";
-import { user } from "../../db/primary";
+import { ctx } from "../../../context";
+import { user } from "../../../db/primary";
 import { eq } from "drizzle-orm";
 import to from "await-to-js";
-import { UserControllerError } from "./errors";
+import { UserControllerError } from "../errors";
 
-export const userController = new Elysia().use(ctx).put(
-	"/user/profile",
+export const userController = new Elysia({ prefix: "/user" }).use(ctx).put(
+	"/profile",
 	async (ctx) => {
 		if (!ctx.session) return;
 

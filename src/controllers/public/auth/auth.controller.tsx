@@ -1,12 +1,13 @@
 import Elysia, { t } from "elysia";
-import { ctx } from "../../context";
-import { redirect } from "../../lib";
-import { googleAuth } from "../../auth/lucia";
+import { ctx } from "../../../context";
+import { redirect } from "../../../lib";
+import { googleAuth } from "../../../auth/lucia";
 import { parseCookie, serializeCookie } from "lucia/utils";
-import { env } from "../../config";
+import { env } from "../../../config";
 import { OAuthRequestError } from "@lucia-auth/oauth";
 import { LuciaError } from "lucia";
 import { generateFromEmail } from "unique-username-generator";
+import { AuthControllerError } from "../errors";
 
 export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 	.use(ctx)
@@ -66,9 +67,11 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 			} catch (e) {
 				if (e instanceof LuciaError && e.message === "AUTH_INVALID_KEY_ID") {
 					ctx.log.error(e);
+					throw new AuthControllerError("Credentials wrong");
 				}
 				if (e instanceof LuciaError && e.message === "AUTH_INVALID_PASSWORD") {
 					ctx.log.error(e);
+					throw new AuthControllerError("Credentials wrong");
 				}
 			}
 		},
@@ -130,6 +133,7 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 			} catch (e) {
 				if (e instanceof LuciaError && e.message === "AUTH_DUPLICATE_KEY_ID") {
 					console.error(e);
+					throw new AuthControllerError("User already exists");
 				}
 				ctx.log.error(e);
 			}
@@ -237,10 +241,10 @@ export const authController = new Elysia({ name: "@app/auth", prefix: "/auth" })
 			console.error(e, "Error signing in with Google");
 			if (e instanceof OAuthRequestError) {
 				set.status = "Unauthorized";
-				return;
+				throw new AuthControllerError("Unauthorized");
 			} else {
 				set.status = "Internal Server Error";
-				return;
+				throw new AuthControllerError("Internal Server Error");
 			}
 		}
 	});

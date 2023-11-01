@@ -1,6 +1,6 @@
 import { ctx } from "@/context";
 import Elysia from "elysia";
-import { userController } from "./user.controller";
+import { userController } from "./user/user.controller";
 import { PrivateControllerError } from "./errors";
 
 export const privateControllers = new Elysia({
