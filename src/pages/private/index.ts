@@ -9,6 +9,6 @@ export const privatePages = new Elysia({
 	name: "@app/pages/private",
 })
 	.use(ctx)
-	.group("", protectedRoute, (privatedPages) =>
+	.guard(protectedRoute, (privatedPages) =>
 		privatedPages.use(orgPage).use(dashboardPage).use(ProfilePage)
 	);
