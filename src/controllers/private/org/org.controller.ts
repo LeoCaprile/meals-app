@@ -8,6 +8,7 @@ import { org, user } from "@/db/primary";
 import { countryCodes } from "@/lib/countryCodes";
 import { eq } from "drizzle-orm";
 import { redirect } from "@/lib";
+import { env } from "@/config";
 
 export const orgController = new Elysia({
 	name: "@app/controllers/private/org",
@@ -24,8 +25,7 @@ export const orgController = new Elysia({
 			const options = {
 				method: "POST",
 				headers: {
-					Authorization:
-						"Bearer eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJ6NTFiSTMwREVlNkNMS29YTWEteVNRIn0.ZHN1byV-HGaTjN1bz82mAntgeKcYDZi4NNMVRar-jZDQy_zCnU7pSDbYZMpsh4gZVgnmszRP3lrI7bQqUIfhCw",
+					Authorization: "Bearer " + env.TURSO_API_KEY,
 					"content-type": "application/json",
 				},
 				body: `{"name":"${dbName}","group":"default","image":"latest"}`,
