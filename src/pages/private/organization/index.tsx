@@ -34,9 +34,10 @@ export const orgPage = new Elysia({
 				<div class="grid place-content-center">
 					<div class="flex flex-col gap-5 p-5 b-2 b-coolGray-2 rounded">
 						<form
-							hx-post="/api/auth/singin"
+							hx-post="/api/organization/create"
 							hx-swap="none"
 							class="flex flex-col"
+							enctype="multipart/form-data"
 						>
 							<TextInput
 								label="Name"
@@ -48,26 +49,28 @@ export const orgPage = new Elysia({
 								label="Email"
 								placeholder="type here..."
 								name="email"
-								type="text"
+								type="email"
 							/>
 							<TextInput
 								label="Phone"
-								placeholder="type here..."
+								placeholder="example: 912341234"
 								name="phone"
 								type="tel"
+								pattern="^[0-9]{9}$"
 							/>
 
 							<label
 								for="countries"
 								class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 							>
-								Select an option
+								Choose country
 							</label>
 							<select
+								required="true"
 								id="countries"
+								name="countryCode"
 								class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 							>
-								<option selected>Choose a country</option>
 								<option value="CL">Chile</option>
 								<option value="AR">Argentina</option>
 								<option value="PE">Perú</option>
@@ -86,7 +89,7 @@ export const orgPage = new Elysia({
 								accept="image/png, image/jpeg"
 							/>
 
-							<Button className="mt-5" type="submit">
+							<Button loading className="mt-5" type="submit">
 								Create
 							</Button>
 						</form>

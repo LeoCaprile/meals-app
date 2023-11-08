@@ -19,7 +19,10 @@ export const dashboardPage = new Elysia({
 				<div>
 					<h2 class="text-2xl">Organizations</h2>
 					{userOrg ? (
-						<div>organization</div>
+						<>
+							<div>organization</div>
+							<p>{userOrg} </p>
+						</>
 					) : (
 						<div>
 							No organization

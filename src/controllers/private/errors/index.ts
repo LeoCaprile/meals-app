@@ -11,3 +11,10 @@ export class PrivateControllerError extends Error {
 		this.name = "PrivateControllerError";
 	}
 }
+
+export class OrganizationControllerError extends Error {
+	constructor(message: string) {
+		super(message);
+		this.name = "OrganizationControllerError";
+	}
+}

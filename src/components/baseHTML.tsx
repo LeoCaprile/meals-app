@@ -15,10 +15,10 @@ export const BaseHTML = ({
 					href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"
 				/>
 				<link rel="stylesheet" href="/public/dist/unocss.css" />
+				<script src="/public/htmx@1.9.6.min.js" />
 				{env.NODE_ENV === "development" && (
 					<script src="/public/liveReload.js"></script>
 				)}
-				<script src="/public/htmx@1.9.6.min.js" />
 				<title safe>{title}</title>
 			</head>
 			<body class="flex-col h-full">{children}</body>
